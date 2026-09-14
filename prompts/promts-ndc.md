@@ -1,6 +1,6 @@
 # Prompts utilizados — NDC
 
-10. "Actúa como QA. Genera un test E2E con Playwright para el Escenario 1: carga de la página de Position.
+1. "Actúa como QA. Genera un test E2E con Playwright para el Escenario 1: carga de la página de Position.
 
 Given que estoy en /positions/1
 When la página de Position termina de cargar
