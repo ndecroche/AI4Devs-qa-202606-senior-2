@@ -3,12 +3,22 @@ import { Col, Card } from 'react-bootstrap';
 import { Droppable } from 'react-beautiful-dnd';
 import CandidateCard from './CandidateCard';
 
+const toPhaseColumnTestId = (title) =>
+    `phase-column-${title.toLowerCase().replace(/\s+/g, '-')}`;
+
 const StageColumn = ({ stage, index, onCardClick }) => (
     <Col md={3}>
         <Droppable droppableId={`${index}`}>
             {(provided) => (
-                <Card className="mb-4" ref={provided.innerRef} {...provided.droppableProps}>
-                    <Card.Header className="text-center">{stage.title}</Card.Header>
+                <Card
+                    className="mb-4"
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                    data-testid={toPhaseColumnTestId(stage.title)}
+                    role="region"
+                    aria-label={stage.title}
+                >
+                    <Card.Header as="h3" className="text-center">{stage.title}</Card.Header>
                     <Card.Body>
                         {stage.candidates.map((candidate, idx) => (
                             <CandidateCard key={candidate.id} candidate={candidate} index={idx} onClick={onCardClick} />
