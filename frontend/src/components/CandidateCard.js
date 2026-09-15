@@ -15,10 +15,8 @@ const CandidateCard = ({ candidate, index, onClick }) => (
             >
                 <Card.Body>
                     <Card.Title as="h4">{candidate.name}</Card.Title>
-                    <div>
-                        {Array.from({ length: candidate.rating }).map((_, i) => (
-                            <span key={i} role="img" aria-label="rating">🟢</span>
-                        ))}
+                    <div role="img" aria-label="rating">
+                        {'🟢'.repeat(candidate.rating || 0)}
                     </div>
                 </Card.Body>
             </Card>

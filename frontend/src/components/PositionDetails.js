@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Container, Row, Offcanvas, Button } from 'react-bootstrap';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Container, Row, Button } from 'react-bootstrap';
 import { DragDropContext } from 'react-beautiful-dnd';
 import StageColumn from './StageColumn';
 import CandidateDetails from './CandidateDetails';
-import { useNavigate } from 'react-router-dom';
 
 const PositionsDetails = () => {
     const { id } = useParams();
@@ -106,7 +105,7 @@ const PositionsDetails = () => {
             <DragDropContext onDragEnd={onDragEnd}>
                 <Row>
                     {stages.map((stage, index) => (
-                        <StageColumn key={index} stage={stage} index={index} onCardClick={handleCardClick} />
+                        <StageColumn key={stage.id} stage={stage} index={index} onCardClick={handleCardClick} />
                     ))}
                 </Row>
             </DragDropContext>
